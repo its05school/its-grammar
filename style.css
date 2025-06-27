@@ -1,0 +1,173 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px 40px 40px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+h1 { color: #4a4a4a; }
+.description { color: #666; margin-bottom: 25px; }
+
+#topic-selection-area {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: left;
+}
+#topic-checkboxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px;
+}
+#topic-checkboxes label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+#topic-checkboxes label:hover {
+    background-color: #f0f0f5;
+}
+
+
+.button-group button {
+    margin: 5px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #5c67f2;
+    color: white;
+    transition: all 0.3s ease;
+}
+.button-group button:hover {
+    background-color: #4a54c9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.button-group button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* --- 학습지 공통 스타일 --- */
+.paper {
+    margin-top: 25px;
+    text-align: left;
+    border: 1px solid #ddd;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+.logo-container img { width: 120px; }
+.info-container { font-weight: bold; }
+.info-container span { margin-left: 20px; }
+.quiz-instructions {
+    font-weight: bold;
+    font-size: 1.1em;
+    padding-bottom: 8px;
+    margin-top: 25px;
+    border-bottom: 1px solid #ddd;
+}
+.quiz-instructions-individual {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* --- '단어 변형' 유형을 위한 다단 레이아웃 --- */
+.problem-list {
+    column-count: 3;
+    column-gap: 40px;
+    margin-top: 15px;
+}
+.problem-item-container {
+    break-inside: avoid;
+    padding-top: 10px;
+}
+.problem-item-container .question-item { margin-bottom: 5px; }
+.problem-item-container .answer-line { padding-left: 30px; margin-bottom: 15px; }
+
+/* --- 일반 '문장 변형' 유형 스타일 --- */
+.question-item-container-sentence {
+    margin-top: 5px;
+}
+.question-item {
+    display: flex;
+    align-items: baseline;
+}
+.question-number {
+    font-weight: bold;
+    margin-right: 10px;
+}
+.question-sentence {
+    font-weight: bold;
+    color: black;
+}
+.question-sentence-verb {
+    font-weight: bold;
+    color: black;
+    margin-left: 30px; /* 문제 번호 너비 고려 */
+}
+.answer-line {
+    margin-top: 1.5px;
+    color: #888;
+}
+
+/* --- 정답지 스타일 --- */
+.answer-item {
+    font-size: 15px;
+    margin-bottom: 10px;
+    break-inside: avoid;
+}
+
+/* --- 반응형 및 인쇄 스타일 --- */
+@media (max-width: 800px) { .problem-list { column-count: 2; } }
+@media (max-width: 480px) { .problem-list { column-count: 1; } }
+.print-only { display: none; }
+@media print {
+    body { margin: 0; padding: 0; background-color: #fff; }
+    .container { box-shadow: none; padding: 0; }
+    body * { visibility: hidden; }
+    .button-group, .description, h1, #topic-selection-area { display: none; }
+
+    #print-section, #print-section * { visibility: visible; }
+
+    #print-section {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        padding: 20px;
+    }
+}
