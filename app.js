@@ -6,7 +6,7 @@ import { generateProblems } from './problem_generators.js';
 // [설정] 모든 설정을 이 곳에서 관리합니다.
 // =================================================================
 
-const API_KEY = 'AIzaSyCF_C3hfkobaBtPiyKieJPEqVBit_w_5Gw'; 
+
 const THEMES = ['school life(학교 생활)', 'food(음식)', 'animals(동물)', 'hobbies(취미)', 'daily routines(일상생활)', 'travel(여행)', 'sports(스포츠)', 'home life(가정 생활)'];
 const NUMBER_OF_QUESTIONS_PER_TOPIC_DEFAULT = 50; 
 
